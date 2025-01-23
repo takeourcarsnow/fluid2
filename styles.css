@@ -1,0 +1,208 @@
+:root {
+    --primary-color: #00ff88;
+    --background-color: #000000;
+    --ui-background: rgba(0, 0, 0, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: var(--background-color);
+    overflow: hidden;
+    font-family: system-ui, -apple-system, sans-serif;
+    user-select: none;
+}
+
+canvas {
+    display: block;
+    touch-action: none;
+    background-color: var(--background-color);
+}
+
+.ui {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    color: var(--primary-color);
+    z-index: 100;
+    background: var(--ui-background);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 100;
+    background: var(--ui-background);
+    padding: 15px;
+    border-radius: 8px;
+    width: min(90vw, 350px);
+}
+
+.main-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+}
+
+.sliders {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: var(--primary-color);
+}
+
+.slider-container label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 255, 136, 0.2);
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.select-style {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.select-style option {
+    background: #000;
+    color: var(--primary-color);
+}
+
+.color-picker {
+    width: 100%;
+    height: 31px;
+    padding: 0;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    display: none;
+}
+
+.color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.color-picker::-webkit-color-swatch {
+    border: none;
+    border-radius: 2px;
+}
+
+.toggle-ui {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 255, 136, 0.2);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.toggle-ui:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+}
+
+.ui-hidden .ui,
+.ui-hidden .controls {
+    display: none;
+}
+
+.keyboard-shortcuts {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .keyboard-shortcuts {
+        display: none;
+    }
+}
